@@ -1,0 +1,33 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% block title %}
+    Users
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <div class="users_upper">
+            <div>Id</div>
+            <div>NickName</div>
+            <div>Group</div>
+            <div>Date</div>
+            <div>Edit User</div>
+            <div>Delete User</div>
+        </div>
+        <div class="users_lower">
+            {% for el in all_users %}
+                <div class="users">
+                    <div>{{ el.id }}</div>
+                    <div>{{ el.nickname }}</div>
+                    <div>{{ el.group }}</div>
+                    <div>{{ el.date }}</div>
+                    <div><a href="{% url 'edit_user' el.id %}">EDIT</a></div>
+                    <div><a href="{% url 'delete_user' el.id %}">DELETE</a></div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+
+    </div>
+    {% block editor %}
+    {% endblock %}
+{% endblock %}

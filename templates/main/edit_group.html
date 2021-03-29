@@ -1,0 +1,28 @@
+{% extends 'main/groups.html' %}
+{% load static %}
+{% block title %}
+    Groups
+{% endblock %}
+{% block editor %}
+    <div class="main">
+        <div class="users_lower">
+            <div class="users">
+                <div>{{ group.id }}</div>
+                <div>{{ group.name }}</div>
+                <div>{{ group.description }}</div>
+                <div><a href="{% url 'edit_group' group.id %}">UPDATE</a></div>
+                <div><a href="{% url 'delete_group' group.id %}">DELETE</a></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }} <br>
+            {{ form.description }}
+            <span>{{ error }}</span>
+            <button type="submit">Edit group</button>
+        </form>
+    </div>
+
+{% endblock %}

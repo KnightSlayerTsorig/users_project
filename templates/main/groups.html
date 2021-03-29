@@ -1,0 +1,30 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% block title %}
+    Groups
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <div class="users_upper">
+            <div>Group id</div>
+            <div>Group Name</div>
+            <div>Group description</div>
+            <div>Update group</div>
+            <div>Delete group</div>
+        </div>
+        <div class="users_lower">
+            {% for el in all_groups %}
+                <div class="users">
+                    <div>{{ el.id }}</div>
+                    <div>{{ el.name }}</div>
+                    <div>{{ el.description }}</div>
+                    <div><a href="{% url 'edit_group' el.id %}">UPDATE</a></div>
+                    <div><a href="{% url 'delete_group' el.id %}">DELETE</a></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% block editor %}
+    {% endblock %}
+{% endblock %}
+

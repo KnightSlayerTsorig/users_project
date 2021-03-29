@@ -1,0 +1,25 @@
+{% extends 'main/users.html' %}
+{% block title %}
+    Edit User
+{% endblock %}
+{% block editor %}
+    <div class="main">
+        <div class="users_lower">
+            <div class="users">
+                <div>{{ user.id }}</div>
+                <div>{{ user.nickname }}</div>
+                <div>{{ user.group }}</div>
+                <div>{{ user.date }}</div>
+                <div><a href="{% url 'edit_user' user.id %}">EDIT</a></div>
+                <div><a href="{% url 'delete_user' user.id %}">DELETE</a></div>
+            </div>
+        </div>
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.nickname }} <br>
+            {{ form.group }}
+            <button type="submit">Edit user</button>
+        </form>
+    </div>
+{% endblock %}

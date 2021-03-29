@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #2c2c2c;
+}
+
+.main {
+    margin: 0 auto;
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+
+.users_upper, .users_lower, .users_upper div{
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border: 2px solid black;
+}
+
+.users_lower {
+    flex-direction: column;
+}
+
+.users {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.users div, .users_upper div{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+    width: 17%;
+}
+
+.group_form {
+    margin: 2%;
+    display: flex;
+    border: 2px solid black;
+    justify-content: center;
+}

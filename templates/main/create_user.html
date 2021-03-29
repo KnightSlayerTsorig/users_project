@@ -1,0 +1,37 @@
+{% extends 'main/index.html' %}
+{% block title %}
+    Create User
+{% endblock %}
+{% block content %}
+    <div class="main">
+    <div class="users_upper">
+        <form method="post">
+            {% csrf_token %}
+            User NickName  {{ form.nickname }} <br>
+            User Group     {{ form.group }}
+            <button type="submit">Create user</button>
+        </form>
+    </div>
+    <div class="users_upper">
+        <div>Id</div>
+        <div>NickName</div>
+        <div>Group</div>
+        <div>Date</div>
+        <div>Edit User</div>
+        <div>Delete User</div>
+    </div>
+    <div class="users_lower">
+        {% for el in all_users %}
+            <div class="users">
+                <div>{{ el.id }}</div>
+                <div>{{ el.nickname }}</div>
+                <div>{{ el.group }}</div>
+                <div>{{ el.date }}</div>
+                <div><a href="{% url 'edit_user' el.id %}">EDIT</a></div>
+                <div><a href="{% url 'delete_user' el.id %}">DELETE</a></div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
+
